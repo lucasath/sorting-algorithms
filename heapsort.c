@@ -80,24 +80,3 @@ void heapsort(theap * a)
         max_heapify(a, 1);
     }
 }
-
-int main()
-{
-    int vetor[MAX+1] = {0, 3,1,2,5,4,4,7,2,8,6};
-
-    printf("Vetor: \n");
-    for(int i = 1; i <= MAX; i++)
-        printf("- %d ", vetor[i]);
-    printf("\n\n");
-
-    theap arranjo;
-    arranjo.vetor = vetor;
-    arranjo.tam_arranjo = MAX;
-    heapsort(&arranjo);
-
-    printf("Aplicado o Heapsort: \n");
-    for(int i = 1; i <= MAX; i++)
-        printf("- %d ", vetor[i]);
-    printf("\n");
-    return 0;
-}
