@@ -1,4 +1,4 @@
-// MÉTODO INSERTION SORT
+// MÃ‰TODO INSERTION SORT
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -70,14 +70,6 @@ int main(int argc, char** argv)
 		fclose(fp);
 		printf("\n\n\tLeitura do arquivo concluida !");
 	}
-
-	/*printf("\n\t Entre com os elementos do array...:");
-
-	for(i = 0; i < tamanho; i++)
-	{
-		printf("\nDigite o %d número: ", i + 1);
-		scanf("%d", &array[i]);
-	}*/
 
 	printf("\n\n\t Digite 1 para ordernar o array em ordem crescente ou 2 para ordem decrescente: ");
 	scanf("%d", &ordem);
