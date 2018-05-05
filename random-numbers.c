@@ -1,6 +1,10 @@
+/*
+    Author: Luis Carlos da SIlva Filho
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#define MAX_TYPES 3
 /*
     Gera vetor crescente (type 1) de números inteiros de tamanho length.
     Gera vetor decrescente (type 2) de números  inteiros de tamanho length.
@@ -47,26 +51,48 @@ int * random_numbers(int type, int length)
     return vetor;
 }
 
+
+int ** numbers_vectors(int length)
+{
+    int ** vector;
+    vector = malloc(MAX_TYPES * sizeof(int *));
+    if(vector == NULL){
+        printf("Não há espaço de memória suficiente!");
+        exit(EXIT_FAILURE);
+    }else{
+        for(int i = 1; i <= MAX_TYPES; i++)
+            vector[i-1] = random_numbers(i, length);
+    }
+
+    return vector;
+   
+}
+//DEVE USAR ESSA FUNÇÃO APÓS USAR A FUNÇÃO numbers_vectors()
+void libera_matriz(int ** vector){
+    for(int i = 0; i < 3; i++){//Libera as linhas da matriz
+        free(vector[i]);
+        vector[i] = NULL;
+    }
+    free(vector); //Libera a matriz
+    vector = NULL;
+
+}
 int main()
 {
-    int * vetor[3];
+    int ** vector;
     int length;
 
     scanf("%d", &length);
 
-    for(int i = 1; i <= 3; i++)
-        vetor[i-1] = random_numbers(i, length);
-
+    //for(int i = 1; i <= 3; i++)
+        //vector[i-1] = random_numbers(i, length);
+    vector = numbers_vectors(length);
     for(int i = 0; i < 3; i++){
         printf("Type %d : [", i+1);
         for(int j = 0; j < length; j++)
-            printf(" %d ", vetor[i][j]);
+            printf(" %d ", vector[i][j]);
         printf("]\n");
     }
-
-    for(int i = 0; i < 3; i++){
-        free(vetor[i]);
-        vetor[i] = NULL;
-    }
+    libera_matriz(vector);
     return 0;
 }
