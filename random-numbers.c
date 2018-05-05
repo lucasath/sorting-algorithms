@@ -77,15 +77,15 @@ void libera_matriz(int ** vector){
     vector = NULL;
 
 }
+
+//Exemplo de uso das funções
 int main()
 {
     int ** vector;
     int length;
 
     scanf("%d", &length);
-
-    //for(int i = 1; i <= 3; i++)
-        //vector[i-1] = random_numbers(i, length);
+    
     vector = numbers_vectors(length);
     for(int i = 0; i < 3; i++){
         printf("Type %d : [", i+1);
