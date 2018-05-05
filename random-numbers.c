@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+/*
+    Gera vetor crescente (type 1) de números inteiros de tamanho length.
+    Gera vetor decrescente (type 2) de números  inteiros de tamanho length.
+    Gera vetor aleatório (type 3) de números inteiros de tamanho length.
 
+    Retorna o endereço do vetor alocado; 
+*/
 int * random_numbers(int type, int length)
 {
     int * vetor;
@@ -29,6 +36,8 @@ int * random_numbers(int type, int length)
                 break;
             //Aleatório
             case 3: 
+                srand(time(NULL));//Determina que o valor semente será o tempo decorrido
+                                  //Dessa forma, as sequências aleatórios geradas são diferentes.
                 for(int i = 0; i < length; i++)
                     vetor[i] = rand()%length; //Valor aleatório de no máximo length
                 break;
@@ -37,8 +46,6 @@ int * random_numbers(int type, int length)
     }
     return vetor;
 }
-
-
 
 int main()
 {
