@@ -16,7 +16,7 @@ int * random_numbers(int type, int length)
 {
     int * vetor;
     int j;
-    vetor = malloc(length * sizeof(int));
+    vetor = malloc((length+1) * sizeof(int));
     if(vetor == NULL){
         printf("Não espaço na memória!");
         exit(EXIT_FAILURE);
@@ -25,7 +25,7 @@ int * random_numbers(int type, int length)
             //Crescente
             case 1:
                 j = 1;
-                for(int i = 0; i < length; i++){
+                for(int i = 1; i <=length; i++){
                     vetor[i] = j;
                     j++;
                 }
@@ -33,7 +33,7 @@ int * random_numbers(int type, int length)
             //Decrescente
             case 2: 
                 j = length;
-                for(int i = 0; i < length; i++){
+                for(int i = 1; i <=length; i++){
                     vetor[i] = j;
                     j--;
                 }
@@ -42,7 +42,7 @@ int * random_numbers(int type, int length)
             case 3: 
                 srand(time(NULL));//Determina que o valor semente será o tempo decorrido
                                   //Dessa forma, as sequências aleatórios geradas são diferentes.
-                for(int i = 0; i < length; i++)
+                for(int i = 1; i <= length; i++)
                     vetor[i] = rand()%length; //Valor aleatório de no máximo length
                 break;
             default: break;
@@ -51,7 +51,7 @@ int * random_numbers(int type, int length)
     return vetor;
 }
 
-
+//DEVE USAR ESSA FUNÇÃO APÓS USAR A FUNÇÃO 
 int ** numbers_vectors(int length)
 {
     int ** vector;
