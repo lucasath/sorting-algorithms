@@ -9,7 +9,8 @@ void quicksort(int * a, int p, int r)
         q = partition(a, p, r);
         quicksort(a, p, q-1);
         quicksort(a, q+1, r);
-    }
+    }else
+        return;
 }
 
 void troca(int * vetor, int a, int b)
@@ -23,7 +24,7 @@ void troca(int * vetor, int a, int b)
 
 int partition(int * a, int p, int r)
 {
-    int x = a[r];
+    int x = a[(r+p)/2];
     int i = p - 1;
 
     for(int j = p; j <= r-1; j++){
